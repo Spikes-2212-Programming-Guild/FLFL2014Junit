@@ -25,7 +25,9 @@ public abstract class Command implements Runnable {
         execute();
     }
     public void start(){
-        
+        for(int i = 0;i<subsystems.size();i++){
+            threads.set(i, subsystems.get(i).setCommand(this));
+        }
     }
     
     protected void requires(Subsystem subsystem){
