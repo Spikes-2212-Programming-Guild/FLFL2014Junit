@@ -13,12 +13,17 @@ public class Subsystem {
 
     private Thread thread;
     private Command currentCommand;
+    private Command defaultC;
 
     public Thread setCommand(Command command) {
         currentCommand.interrupt();
         currentCommand = command;
         thread = new Thread(command);
         return thread;
+    }
+    
+    public void runDefault(){
+        setCommand(defaultC);
     }
 
 }

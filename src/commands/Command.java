@@ -19,23 +19,29 @@ public abstract class Command implements Runnable {
     public Command() {
         initialize();
     }
-    
+
     @Override
-    public void run(){
+    public void run() {
         execute();
+        if (isFinished()) {
+            for (int i = 0; i < subsystems.size(); i++) {
+                subsystems.get(i).runDefault();
+            }
+        }
     }
-    public void start(){
-        for(int i = 0;i<subsystems.size();i++){
+
+    public void start() {
+        for (int i = 0; i < subsystems.size(); i++) {
             threads.set(i, subsystems.get(i).setCommand(this));
         }
     }
-    
-    protected void requires(Subsystem subsystem){
-       subsystems.add(subsystem);
+
+    protected void requires(Subsystem subsystem) {
+        subsystems.add(subsystem);
     }
-    
-    public void interrupt(){
-        for(Thread t : threads){
+
+    public void interrupt() {
+        for (Thread t : threads) {
             t.interrupt();
         }
         interrupted();
@@ -44,8 +50,10 @@ public abstract class Command implements Runnable {
     protected abstract void initialize();
 
     protected abstract void execute();
-    
+
     protected abstract void end();
-    
+
     protected abstract void interrupted();
+
+    protected abstract boolean isFinished();
 }
