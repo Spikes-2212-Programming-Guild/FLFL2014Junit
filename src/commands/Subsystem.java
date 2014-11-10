@@ -28,6 +28,7 @@ public class Subsystem {
     
     protected void setDefaultCommand(Command command){
         defaultC = command;
+        runDefault();
     }
 
 }
