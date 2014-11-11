@@ -68,7 +68,7 @@ public class CommandGroup extends Command {
 
     @Override
     protected boolean isFinished() {
-        return false;
+        return blockFinished(commands.get(commands.size()-1).size());
     }
 
 }
