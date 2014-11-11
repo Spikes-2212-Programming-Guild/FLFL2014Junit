@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package things;
+package libraries;
 
 /**
  *
  * @author eyal
  */
-public class Encoder {
-        
-    public Encoder(int port1, int port2){
+public class DigitalInput {
+    
+    public DigitalInput(int port){
     }
     
-    public double get(){
-        return 0;
+    public boolean get(){
+        return true;
     }
     
 }
