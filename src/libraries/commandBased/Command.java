@@ -44,8 +44,14 @@ public abstract class Command implements Runnable {
     public void interrupt() {
         for (Thread t : threads) {
             t.interrupt();
+            //resets the threads
+            t = null;
         }
         interrupted();
+    }
+    public boolean isRunning(){
+        //checks if command is running by checking if the first thread is running
+        return threads.get(0).isAlive();
     }
 
     public ArrayList<Subsystem> getSubsystems() {

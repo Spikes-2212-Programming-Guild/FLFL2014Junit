@@ -45,6 +45,7 @@ public class CommandGroup extends Command {
 
     @Override
     protected void initialize() {
+        //initializes the first block in commands
         commands.add(new ArrayList<>());
     }
 
@@ -53,11 +54,19 @@ public class CommandGroup extends Command {
         if (blockFinished(runningBlock)) {
             runningBlock++;
             runBlock(runningBlock);
+        } else {
+            for (Command c : commands.get(runningBlock)) {
+                if(!c.isRunning()){
+                    interrupt();
+                }
+            }
         }
+
     }
 
     @Override
     protected void end() {
+        //resets running block
         runningBlock = -1;
     }
 
@@ -68,7 +77,8 @@ public class CommandGroup extends Command {
 
     @Override
     protected boolean isFinished() {
-        return blockFinished(commands.get(commands.size()-1).size());
+        //checks if the last block in commands finished
+        return blockFinished(commands.get(commands.size() - 1).size());
     }
 
 }
