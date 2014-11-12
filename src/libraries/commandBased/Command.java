@@ -42,10 +42,10 @@ public abstract class Command implements Runnable {
     }
 
     public void interrupt() {
-        for (Thread t : threads) {
-            t.interrupt();
+        for (int i = 0;i<threads.size();i++) {
+            threads.get(i).interrupt();
             //resets the threads
-            t = null;
+            threads.set(i, null);
         }
         interrupted();
     }
