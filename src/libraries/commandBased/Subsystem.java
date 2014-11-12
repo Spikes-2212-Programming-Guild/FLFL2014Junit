@@ -13,7 +13,7 @@ public class Subsystem {
 
     private Thread thread;
     private Command currentCommand;
-    private Command defaultC;
+    private Command defaultCommand;
 
     public Thread setCommand(Command command) {
         currentCommand.interrupt();
@@ -23,11 +23,11 @@ public class Subsystem {
     }
     
     public void runDefault(){
-        setCommand(defaultC);
+        setCommand(defaultCommand);
     }
     
     protected void setDefaultCommand(Command command){
-        defaultC = command;
+        defaultCommand = command;
         runDefault();
     }
 
