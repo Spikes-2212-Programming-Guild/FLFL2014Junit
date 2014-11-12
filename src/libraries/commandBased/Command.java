@@ -34,6 +34,7 @@ public abstract class Command implements Runnable {
         for (int i = 0; i < subsystems.size(); i++) {
             threads.set(i, subsystems.get(i).setCommand(this));
         }
+        threads.get(0).start();
     }
 
     protected void requires(Subsystem subsystem) {
@@ -45,6 +46,10 @@ public abstract class Command implements Runnable {
             t.interrupt();
         }
         interrupted();
+    }
+
+    public ArrayList<Subsystem> getSubsystems() {
+        return subsystems;
     }
 
     protected abstract void initialize();
