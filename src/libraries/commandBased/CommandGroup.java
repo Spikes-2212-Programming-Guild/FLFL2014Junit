@@ -56,7 +56,7 @@ public class CommandGroup extends Command {
             runBlock(runningBlock);
         } else {
             for (Command c : commands.get(runningBlock)) {
-                if(!c.isRunning()){
+                if (!c.isRunning()) {
                     interrupt();
                 }
             }

@@ -21,12 +21,12 @@ public class Subsystem {
         thread = new Thread(command);
         return thread;
     }
-    
-    public void runDefault(){
-        setCommand(defaultCommand);
+
+    public void runDefault() {
+        defaultCommand.start();
     }
-    
-    protected void setDefaultCommand(Command command){
+
+    protected void setDefaultCommand(Command command) {
         defaultCommand = command;
         runDefault();
     }
