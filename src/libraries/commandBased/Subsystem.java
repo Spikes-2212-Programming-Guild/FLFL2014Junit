@@ -9,11 +9,16 @@ package libraries.commandBased;
  *
  * @author AtidSpikes
  */
-public class Subsystem {
+public abstract class Subsystem {
 
     private Thread thread;
     private Command currentCommand;
     private Command defaultCommand;
+
+    public Subsystem() {
+        initDefaultCommand();
+    }
+    
 
     public Thread setCommand(Command command) {
         currentCommand.interrupt();
@@ -30,5 +35,6 @@ public class Subsystem {
         defaultCommand = command;
         runDefault();
     }
+    protected abstract void initDefaultCommand();
 
 }
