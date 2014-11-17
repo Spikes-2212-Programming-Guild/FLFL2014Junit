@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class CommandGroup extends Command {
 
     private ArrayList<ArrayList<Command>> commands = new ArrayList<>();
+    //what command block are we currently building
     private int currentCommandBlock = 0;
     //-1 for no block is running
     private int runningBlock = -1;
