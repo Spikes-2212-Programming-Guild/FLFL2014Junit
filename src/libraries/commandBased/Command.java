@@ -15,6 +15,7 @@ public abstract class Command implements Runnable {
 
     private ArrayList<Thread> threads = new ArrayList<Thread>();
     private ArrayList<Subsystem> subsystems = new ArrayList<Subsystem>();
+    private boolean interrupted;
 
     public Command() {
         initialize();
@@ -27,6 +28,7 @@ public abstract class Command implements Runnable {
             for (int i = 0; i < subsystems.size(); i++) {
                 subsystems.get(i).runDefault();
             }
+            cancel();
         }
     }
 
@@ -34,6 +36,7 @@ public abstract class Command implements Runnable {
         for (int i = 0; i < subsystems.size(); i++) {
             threads.set(i, subsystems.get(i).setCommand(this));
         }
+        interrupted = false;
         threads.get(0).start();
     }
 
@@ -43,6 +46,7 @@ public abstract class Command implements Runnable {
 
     public void interrupt() {
         interrupted();
+        interrupted = true;
         for (int i = 0; i < threads.size(); i++) {
             threads.get(i).interrupt();
             //resets the threads
@@ -51,12 +55,16 @@ public abstract class Command implements Runnable {
     }
 
     public boolean isInterrupted() {
-        //checks if command was interrupted by checking if the thread is null
-        return threads.get(0) == null;
+        return interrupted;
     }
 
-    public ArrayList<Subsystem> getSubsystems() {
-        return subsystems;
+    public void cancel() {
+        end();
+        for (int i = 0; i < threads.size(); i++) {
+            threads.get(i).interrupt();
+            //resets the threads
+            threads.set(i, null);
+        }
     }
 
     protected abstract void initialize();
