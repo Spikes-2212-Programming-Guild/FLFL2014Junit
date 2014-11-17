@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public abstract class Command implements Runnable {
 
-    ArrayList<Thread> threads = new ArrayList<Thread>();
-    ArrayList<Subsystem> subsystems = new ArrayList<Subsystem>();
+    private ArrayList<Thread> threads = new ArrayList<Thread>();
+    private ArrayList<Subsystem> subsystems = new ArrayList<Subsystem>();
 
     public Command() {
         initialize();
@@ -42,14 +42,15 @@ public abstract class Command implements Runnable {
     }
 
     public void interrupt() {
-        for (int i = 0;i<threads.size();i++) {
+        interrupted();
+        for (int i = 0; i < threads.size(); i++) {
             threads.get(i).interrupt();
             //resets the threads
             threads.set(i, null);
         }
-        interrupted();
     }
-    public boolean isRunning(){
+
+    public boolean isRunning() {
         //checks if command is running by checking if the first thread is running
         return threads.get(0).isAlive();
     }

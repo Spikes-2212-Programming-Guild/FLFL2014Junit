@@ -18,7 +18,6 @@ public abstract class Subsystem {
     public Subsystem() {
         initDefaultCommand();
     }
-    
 
     public Thread setCommand(Command command) {
         currentCommand.interrupt();
@@ -35,6 +34,7 @@ public abstract class Subsystem {
         defaultCommand = command;
         runDefault();
     }
+
     protected abstract void initDefaultCommand();
 
 }
