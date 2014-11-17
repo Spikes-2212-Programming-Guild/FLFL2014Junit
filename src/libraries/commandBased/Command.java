@@ -50,9 +50,9 @@ public abstract class Command implements Runnable {
         }
     }
 
-    public boolean isRunning() {
-        //checks if command is running by checking if the first thread is running
-        return threads.get(0).isAlive();
+    public boolean isInterrupted() {
+        //checks if command was interrupted by checking if the thread is null
+        return threads.get(0) == null;
     }
 
     public ArrayList<Subsystem> getSubsystems() {
