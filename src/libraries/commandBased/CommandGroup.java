@@ -72,6 +72,9 @@ public class CommandGroup extends Command {
 
     @Override
     protected void interrupted() {
+        for(Command c:commands.get(runningBlock)){
+            interrupt();
+        }
         end();
     }
 
