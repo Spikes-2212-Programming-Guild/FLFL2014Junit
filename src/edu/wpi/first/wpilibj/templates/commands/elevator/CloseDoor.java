@@ -12,9 +12,10 @@ import edu.wpi.first.wpilibj.templates.commands.CommandBase;
  * @author eyal
  */
 public class CloseDoor extends CommandBase {
+
     int i;
-    
-    public CloseDoor(){
+
+    public CloseDoor() {
         requires(door);
     }
 
@@ -30,8 +31,9 @@ public class CloseDoor extends CommandBase {
 
     @Override
     protected boolean isFinished() {
-        if(i>1000){
-            return true;
+        if (i > 1000) {
+            //assumes we got there for testing
+            door.getDoorTop().set(true);
         }
         return door.isClosed();
     }
@@ -45,5 +47,8 @@ public class CloseDoor extends CommandBase {
     protected void interrupted() {
         end();
     }
-    
+
 }
+
+
+// CHOO CHOO MOTHA
