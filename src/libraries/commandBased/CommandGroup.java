@@ -19,6 +19,11 @@ public class CommandGroup extends Command {
     //-1 for no block is running
     private int runningBlock = -1;
 
+    public CommandGroup() {
+        //intializes the first block
+        commands.add(new ArrayList<>());
+    }
+
     protected void addParallel(Command command) {
         commands.get(currentCommandBlock).add(command);
     }
@@ -46,8 +51,6 @@ public class CommandGroup extends Command {
 
     @Override
     protected void initialize() {
-        //initializes the first block in commands
-        commands.add(new ArrayList<>());
     }
 
     @Override
@@ -73,7 +76,7 @@ public class CommandGroup extends Command {
 
     @Override
     protected void interrupted() {
-        for(Command c:commands.get(runningBlock)){
+        for (Command c : commands.get(runningBlock)) {
             interrupt();
         }
         end();
