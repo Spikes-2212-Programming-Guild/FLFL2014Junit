@@ -6,7 +6,9 @@
 package testCommands;
 
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
+import edu.wpi.first.wpilibj.templates.commands.drive.DriveRotate;
 import edu.wpi.first.wpilibj.templates.commands.drive.DriveStraight;
+import edu.wpi.first.wpilibj.templates.commands.drive.TwoJoystickDrive;
 import libraries.commandBased.Command;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -41,12 +43,26 @@ public class TestDriving {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
-    
+    @Test
+    public void testTwoJoystickDrive() {
+        Command command = new TwoJoystickDrive();
+        command.start();
+        assertEquals(1, CommandBase.driveTrain.getLeft().getBack().get(), 0);
+        assertEquals(1, CommandBase.driveTrain.getRight().getBack().get(), 0);
+        assertEquals(1, CommandBase.driveTrain.getLeft().getFront().get(), 0);
+        assertEquals(1, CommandBase.driveTrain.getRight().getFront().get(), 0);
+    }
+
+    @Test
+    public void testDriveRotate() {
+        Command command = new DriveRotate();
+        command.start();
+        assertEquals(1, CommandBase.driveTrain.getLeft().getBack().get(), 0);
+        assertEquals(1, CommandBase.driveTrain.getRight().getBack().get(), 0);
+        assertEquals(1, CommandBase.driveTrain.getLeft().getFront().get(), 0);
+        assertEquals(1, CommandBase.driveTrain.getRight().getFront().get(), 0);
+    }
+
     //TODO find why it doesnt work
     @Test
     public void testDriveStraight() {
