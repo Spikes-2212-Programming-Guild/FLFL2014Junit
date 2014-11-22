@@ -9,14 +9,13 @@ package joystick;
  *
  * @author ThinkRedstone
  */
-public class Joystick {
-    private int port;
+public class JoystickButton extends Button {
 
-    public Joystick(int port) {
-        this.port = port;
+    private final Joystick joystick;
+    private final int buttonNum;
+
+    public JoystickButton(Joystick joystick, int buttonNum) {
+        this.joystick = joystick;
+        this.buttonNum = buttonNum;
     }
-    public boolean getRawButton(int buttonNum){
-        return false;
-    }
-    
 }
