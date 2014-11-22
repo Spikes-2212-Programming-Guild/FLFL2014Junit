@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.templates.commands.elevator.CloseDoor;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import libraries.commandBased.Command;
+import libraries.relay.Relay;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -45,12 +46,18 @@ public class TestBasicElevator {
 
     @Test
     public void testCloseDoor() {
-        Command command = new CloseDoor();
+        CloseDoor command = new CloseDoor();
         command.start();
         try {
             Thread.sleep(10);
         } catch (InterruptedException ex) {
             Logger.getLogger(TestBasicElevator.class.getName()).log(Level.SEVERE, null, ex);
         }
+        assertEquals(Relay.Value.kForward, CommandBase.door.getDoorRelay().get());
+        assertFalse(CommandBase.door.isClosed());
+        while (command.i < 110) {
+        }
+        assertEquals(Relay.Value.kOff, CommandBase.door.getDoorRelay().get());
+        assertTrue(CommandBase.door.isClosed());
     }
 }

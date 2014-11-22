@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.templates.commands.CommandBase;
  */
 public class CloseDoor extends CommandBase {
 
-    int i;
+    public int i;
 
     public CloseDoor() {
         requires(door);
