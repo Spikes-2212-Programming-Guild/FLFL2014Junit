@@ -10,12 +10,18 @@ package libraries.digitalInput;
  * @author eyal
  */
 public class DigitalInput {
-    
-    public DigitalInput(int port){
+
+    private boolean state;
+
+    public DigitalInput(int port) {
     }
-    
-    public boolean get(){
-        return false;
+
+    public boolean get() {
+        return state;
     }
-    
+
+    public void set(boolean state) {
+        state = state;
+    }
+
 }
