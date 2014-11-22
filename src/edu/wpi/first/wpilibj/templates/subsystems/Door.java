@@ -52,11 +52,15 @@ public class Door extends Subsystem {
     public boolean isOpen() {
         return doorBottom.get();
     }
-    
+
     public boolean isClosed() {
         return doorTop.get();
     }
-    
+
+    public Relay getDoorRelay() {
+        return doorRelay;
+    }
+
     protected void initDefaultCommand() {
     }
 
