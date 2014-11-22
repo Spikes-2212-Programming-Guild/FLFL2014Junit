@@ -9,7 +9,7 @@ package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 import libraries.commandBased.Command;
-import scheduler.Scheduler;
+import libraries.scheduler.Scheduler;
 
 
 

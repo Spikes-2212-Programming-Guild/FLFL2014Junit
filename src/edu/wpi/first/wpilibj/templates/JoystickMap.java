@@ -5,9 +5,9 @@
  */
 package edu.wpi.first.wpilibj.templates;
 
-import joystick.Button;
-import joystick.Joystick;
-import joystick.JoystickButton;
+import libraries.joystick.Button;
+import libraries.joystick.Joystick;
+import libraries.joystick.JoystickButton;
 
 /**
  *
