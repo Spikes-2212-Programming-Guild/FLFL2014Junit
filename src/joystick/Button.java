@@ -5,6 +5,8 @@
  */
 package joystick;
 
+import java.util.ArrayList;
+import java.util.Vector;
 import libraries.commandBased.Command;
 
 /**
@@ -15,6 +17,11 @@ public abstract class Button {
 
     protected Command whenPressed;
     protected Command whileHeld;
+    public ArrayList<Button> buttons = new ArrayList<>();
+
+    public Button() {
+        buttons.add(this);
+    }
 
     public void whenPressed(Command command) {
         whenPressed = command;
@@ -23,5 +30,6 @@ public abstract class Button {
     public void whileHeld(Command command) {
         whileHeld = command;
     }
+
     public abstract void run();
 }
