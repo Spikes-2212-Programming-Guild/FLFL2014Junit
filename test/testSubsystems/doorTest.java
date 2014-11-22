@@ -47,4 +47,17 @@ public class doorTest {
         door.openDoor();
         assertEquals(door.isOpen(), true);
     }
+
+    public void closeTest() {
+        Door door = new Door(0, 0, 0);
+        door.closeDoor();
+        assertEquals(door.isClosed(), true);
+    }
+
+    public void stopTest() {
+        Door door = new Door(0, 0, 0);
+        door.stop();
+        assertEquals(door.isOpen(), false);
+        assertEquals(door.isClosed(), false);
+    }
 }
