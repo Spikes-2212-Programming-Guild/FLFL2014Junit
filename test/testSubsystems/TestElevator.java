@@ -48,4 +48,11 @@ public class TestElevator {
         elevator.goUp();
         assertEquals(elevator.isUp(), true);
     }
+
+    public void testDown() {
+        Elevator elevator = new Elevator(1, 1);
+        elevator.goDown();
+        assertEquals(elevator.isDown(), true);
+    }
+
 }
