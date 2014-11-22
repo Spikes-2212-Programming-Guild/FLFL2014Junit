@@ -7,6 +7,7 @@ package testSubsystems;
 
 import static edu.wpi.first.wpilibj.templates.commands.CommandBase.elevator;
 import edu.wpi.first.wpilibj.templates.subsystems.Elevator;
+import libraries.relay.Relay;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -46,20 +47,22 @@ public class TestElevator {
     public void testUp() {
         Elevator elevator = new Elevator(1, 1);
         elevator.goUp();
-        assertEquals(elevator.isUp(), true);
+        assertEquals(elevator.leftWheel.get(), Relay.Value.kForward);
+        assertEquals(elevator.rightWheel.get(), Relay.Value.kForward);
     }
 
     public void testDown() {
         Elevator elevator = new Elevator(1, 1);
         elevator.goDown();
-        assertEquals(elevator.isDown(), true);
+        assertEquals(elevator.leftWheel.get(), Relay.Value.kReverse);
+        assertEquals(elevator.rightWheel.get(), Relay.Value.kReverse);
     }
 
     public void testStop() {
         Elevator elevator = new Elevator(1, 1);
         elevator.stop();
-        assertEquals(elevator.isDown(), false);
-        assertEquals(elevator.isUp(), false);
+        assertEquals(elevator.leftWheel.get(), Relay.Value.kOff);
+        assertEquals(elevator.rightWheel.get(), Relay.Value.kOff);
     }
 
 }
