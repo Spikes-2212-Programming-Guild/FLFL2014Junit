@@ -27,7 +27,9 @@ public abstract class Subsystem {
     public void runDefault() {
         //TODO find a place for initDefaultCommand
         initDefaultCommand();
-        defaultCommand.start();
+        if (defaultCommand != null) {
+            defaultCommand.start();
+        }
     }
 
     protected void setDefaultCommand(Command command) {
