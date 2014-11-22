@@ -18,7 +18,6 @@ public class DriveStraight extends CommandBase {
 
     @Override
     public void execute() {
-        System.out.println("execute");
         driveTrain.straight(oi.getRightY());
     }
 
@@ -29,13 +28,11 @@ public class DriveStraight extends CommandBase {
 
     @Override
     protected void end() {
-        System.out.println("end");
         driveTrain.straight(0);
     }
 
     @Override
     protected void interrupted() {
-        System.out.println("interrupted");
         end();
     }
 
