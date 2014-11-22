@@ -54,8 +54,7 @@ public class TestBasicElevator {
             Logger.getLogger(TestBasicElevator.class.getName()).log(Level.SEVERE, null, ex);
         }
         assertEquals(Relay.Value.kForward, CommandBase.door.getDoorRelay().get());
-        assertFalse(CommandBase.door.isClosed());
-        while (command.i < 110) {
+        while (command.i < 10010) {
         }
         assertEquals(Relay.Value.kOff, CommandBase.door.getDoorRelay().get());
         assertTrue(CommandBase.door.isClosed());
