@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author ThinkRedstone
  */
-public class DriveTrainTest {
+public class TestDriveTrain {
 
-    public DriveTrainTest() {
+    public TestDriveTrain() {
     }
 
     @BeforeClass
