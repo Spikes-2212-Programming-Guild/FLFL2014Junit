@@ -25,10 +25,12 @@ public class CommandGroup extends Command {
     }
 
     protected void addParallel(Command command) {
+        //adds the command to the block without moving to a new one
         commands.get(currentCommandBlock).add(command);
     }
 
     protected void addSequential(Command command) {
+        //adds command then makes a new block and moves into using it
         addParallel(command);
         commands.add(new ArrayList<>());
         currentCommandBlock++;
