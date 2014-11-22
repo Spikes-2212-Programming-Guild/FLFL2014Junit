@@ -5,14 +5,17 @@
  */
 package scheduler;
 
+import joystick.Button;
+
 /**
  *
  * @author ThinkRedstone
  */
-public class OI {
+public class Scheduler {
 
-    public OI() {
-        //create buttons here
+    public void run() {
+        for (Button b : Button.buttons) {
+            b.run();
+        }
     }
-
 }

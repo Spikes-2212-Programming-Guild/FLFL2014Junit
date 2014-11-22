@@ -17,7 +17,7 @@ public abstract class Button {
 
     protected Command whenPressed;
     protected Command whileHeld;
-    public ArrayList<Button> buttons = new ArrayList<>();
+    public static ArrayList<Button> buttons = new ArrayList<>();
 
     public Button() {
         buttons.add(this);
