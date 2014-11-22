@@ -25,6 +25,14 @@ public class Door extends Subsystem {
         this.doorTop = doorTop;
     }
 
+    public DigitalInput getDoorTop() {
+        return doorTop;
+    }
+
+    public DigitalInput getDoorBottom() {
+        return doorBottom;
+    }
+
     public Door(int doorRelayPort, int doorTopPort, int doorBottomPort) {
         this(new Relay(doorRelayPort), new DigitalInput(doorTopPort), new DigitalInput(doorBottomPort));
     }
