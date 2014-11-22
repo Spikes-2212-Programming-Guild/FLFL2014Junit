@@ -16,6 +16,14 @@ import libraries.commandBased.Subsystem;
  */
 public class Elevator extends Subsystem {
     private DigitalInput top = new DigitalInput(RobotMap.ELEVATOR_TOP_DI_PORT);
+
+    public DigitalInput getTop() {
+        return top;
+    }
+
+    public DigitalInput getBottom() {
+        return bottom;
+    }
     private DigitalInput bottom = new DigitalInput(RobotMap.ELEVATOR_BOTTOM_DI_PORT);    
     private Relay rightWheel, leftWheel;
     
