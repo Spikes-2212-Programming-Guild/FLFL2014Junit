@@ -15,27 +15,20 @@ import libraries.commandBased.Subsystem;
  * @author eyal
  */
 public class Elevator extends Subsystem {
+
     private DigitalInput top = new DigitalInput(RobotMap.ELEVATOR_TOP_DI_PORT);
-
-    public DigitalInput getTop() {
-        return top;
-    }
-
-    public DigitalInput getBottom() {
-        return bottom;
-    }
-    private DigitalInput bottom = new DigitalInput(RobotMap.ELEVATOR_BOTTOM_DI_PORT);    
+    private DigitalInput bottom = new DigitalInput(RobotMap.ELEVATOR_BOTTOM_DI_PORT);
     private Relay rightWheel, leftWheel;
-    
-    public Elevator(Relay leftWheel, Relay rightWheel){
-        this.leftWheel=leftWheel;
-        this.rightWheel=rightWheel;
+
+    public Elevator(Relay leftWheel, Relay rightWheel) {
+        this.leftWheel = leftWheel;
+        this.rightWheel = rightWheel;
     }
-    
-    public Elevator(int leftWheelPort, int rightWheelPort){
+
+    public Elevator(int leftWheelPort, int rightWheelPort) {
         this(new Relay(leftWheelPort), new Relay(rightWheelPort));
     }
-    
+
     public void goUp() {
         rightWheel.set(Relay.Value.kForward);
         leftWheel.set(Relay.Value.kForward);
@@ -51,15 +44,23 @@ public class Elevator extends Subsystem {
 
     public void stop() {
         rightWheel.set(Relay.Value.kOff);
-        leftWheel.set(Relay.Value.kOff);        
+        leftWheel.set(Relay.Value.kOff);
     }
-    
+
     public boolean isUp() {
         return top.get();
     }
-    
+
     public boolean isDown() {
         return bottom.get();
     }
-    
+
+    public DigitalInput getTop() {
+        return top;
+    }
+
+    public DigitalInput getBottom() {
+        return bottom;
+    }
+
 }
