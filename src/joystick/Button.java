@@ -13,7 +13,14 @@ import libraries.commandBased.Command;
  */
 public abstract class Button {
 
-    public abstract void whenPressed(Command command);
+    protected Command whenPressed;
+    protected Command whileHeld;
 
-    public abstract void whileHeld(Command command);
+    public void whenPressed(Command command) {
+        whenPressed = command;
+    }
+
+    public void whileHeld(Command command) {
+        whileHeld = command;
+    }
 }
