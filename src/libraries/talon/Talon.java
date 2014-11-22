@@ -9,18 +9,18 @@ package libraries.talon;
  * @author Developer
  */
 public class Talon {
-    
+
     double speed;
 
-    public Talon (int port){
+    public Talon(int port) {
     }
-    
-    public void set(double speed){
-        this.speed=speed;
+
+    public void set(double speed) {
+        this.speed = speed;
     }
-    
-    public double get(){
+
+    public double get() {
         return speed;
     }
-    
+
 }

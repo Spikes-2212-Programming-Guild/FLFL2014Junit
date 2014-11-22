@@ -10,24 +10,28 @@ import edu.wpi.first.wpilibj.templates.commands.CommandBase;
  *
  * @author Developer
  */
-public class DriveStraight extends CommandBase{
-    
-    public DriveStraight (){
-       requires(driveTrain);
+public class DriveStraight extends CommandBase {
+
+    public DriveStraight() {
+        requires(driveTrain);
     }
+
     @Override
-    public void execute(){
+    public void execute() {
         driveTrain.straight(oi.getRightY());
     }
-    
+
+    @Override
     protected boolean isFinished() {
         return false;
     }
 
+    @Override
     protected void end() {
         driveTrain.straight(0);
     }
 
+    @Override
     protected void interrupted() {
         end();
     }
