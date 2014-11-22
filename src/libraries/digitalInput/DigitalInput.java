@@ -21,7 +21,7 @@ public class DigitalInput {
     }
 
     public void set(boolean state) {
-        state = state;
+        this.state = state;
     }
 
 }
