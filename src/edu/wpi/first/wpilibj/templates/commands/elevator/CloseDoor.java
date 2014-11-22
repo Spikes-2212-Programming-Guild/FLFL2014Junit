@@ -31,7 +31,7 @@ public class CloseDoor extends CommandBase {
 
     @Override
     protected boolean isFinished() {
-        if (i > 1000) {
+        if (i > 100) {
             //assumes we got there for testing
             door.getDoorTop().set(true);
         }
