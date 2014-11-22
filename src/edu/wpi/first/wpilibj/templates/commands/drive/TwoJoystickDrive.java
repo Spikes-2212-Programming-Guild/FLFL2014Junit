@@ -17,21 +17,26 @@ public class TwoJoystickDrive extends CommandBase {
         requires(driveTrain);
     }
     
+    @Override
     protected void initialize() {
     }
 
+    @Override
     protected void execute() {
         driveTrain.twoJoystickDrive(oi.getLeftY(), oi.getRightY());
     }
 
+    @Override
     protected boolean isFinished() {
         return false;
     }
 
+    @Override
     protected void end() {
         driveTrain.twoJoystickDrive(0, 0);
     }
 
+    @Override
     protected void interrupted() {
         end();
     }
