@@ -20,11 +20,11 @@ public class Joystick {
     }
 
     public double getX() {
-        return 0;
+        return 1;
     }
 
     public double getY() {
-        return 0;
+        return 1;
     }
     
 }

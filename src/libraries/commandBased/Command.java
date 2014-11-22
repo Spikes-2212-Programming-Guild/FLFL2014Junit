@@ -34,7 +34,7 @@ public abstract class Command implements Runnable {
 
     public void start() {
         for (int i = 0; i < subsystems.size(); i++) {
-            threads.set(i, subsystems.get(i).setCommand(this));
+            threads.add(i, subsystems.get(i).setCommand(this));
         }
         interrupted = false;
         threads.get(0).start();

@@ -16,7 +16,9 @@ public abstract class Subsystem {
     private Command defaultCommand;
 
     public Thread setCommand(Command command) {
-        currentCommand.interrupt();
+        if (currentCommand != null) {
+            currentCommand.interrupt();
+        }
         currentCommand = command;
         thread = new Thread(command);
         return thread;

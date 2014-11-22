@@ -15,6 +15,7 @@ public class DriveStraight extends CommandBase{
     public DriveStraight (){
        requires(driveTrain);
     }
+    @Override
     public void execute(){
         driveTrain.straight(oi.getRightY());
     }
