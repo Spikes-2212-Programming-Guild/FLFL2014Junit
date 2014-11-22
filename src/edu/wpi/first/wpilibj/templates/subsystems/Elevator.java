@@ -62,5 +62,12 @@ public class Elevator extends Subsystem {
     public DigitalInput getBottom() {
         return bottom;
     }
-
+    public Relay getLeftWeel (){
+        leftWheel.get();
+        return leftWheel;
+    }
+    public Relay getRightWeel (){
+        rightWheel.get();
+        return rightWheel;
+    }
 }
