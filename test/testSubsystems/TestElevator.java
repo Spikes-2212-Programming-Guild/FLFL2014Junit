@@ -50,14 +50,14 @@ public class TestElevator {
         assertEquals(elevator.leftWheel.get(), Relay.Value.kForward);
         assertEquals(elevator.rightWheel.get(), Relay.Value.kForward);
     }
-
+    @Test
     public void testDown() {
         Elevator elevator = new Elevator(1, 1);
         elevator.goDown();
         assertEquals(elevator.leftWheel.get(), Relay.Value.kReverse);
         assertEquals(elevator.rightWheel.get(), Relay.Value.kReverse);
     }
-
+    @Test
     public void testStop() {
         Elevator elevator = new Elevator(1, 1);
         elevator.stop();
