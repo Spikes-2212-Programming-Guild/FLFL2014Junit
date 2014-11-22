@@ -11,7 +11,7 @@ import libraries.commandBased.Command;
  *
  * @author ThinkRedstone
  */
-public class Button {
+public abstract class Button {
 
     protected Command whenPressed;
     protected Command whileHeld;
@@ -23,4 +23,5 @@ public class Button {
     public void whileHeld(Command command) {
         whileHeld = command;
     }
+    public abstract void run();
 }
