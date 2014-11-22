@@ -23,12 +23,14 @@ public abstract class Command implements Runnable {
 
     @Override
     public void run() {
-        execute();
-        if (isFinished()) {
-            for (int i = 0; i < subsystems.size(); i++) {
-                subsystems.get(i).runDefault();
+        while (true) {
+            execute();
+            if (isFinished()) {
+                for (int i = 0; i < subsystems.size(); i++) {
+                    subsystems.get(i).runDefault();
+                }
+                cancel();
             }
-            cancel();
         }
     }
 
@@ -50,7 +52,7 @@ public abstract class Command implements Runnable {
         for (int i = 0; i < threads.size(); i++) {
             threads.get(i).interrupt();
             //resets the threads
-            threads.set(i, null);
+            threads.clear();
         }
     }
 
@@ -63,7 +65,7 @@ public abstract class Command implements Runnable {
         for (int i = 0; i < threads.size(); i++) {
             threads.get(i).interrupt();
             //resets the threads
-            threads.set(i, null);
+            threads.clear();
         }
     }
 
