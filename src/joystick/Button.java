@@ -11,7 +11,7 @@ import libraries.commandBased.Command;
  *
  * @author ThinkRedstone
  */
-public abstract class Button {
+public class Button {
 
     protected Command whenPressed;
     protected Command whileHeld;
