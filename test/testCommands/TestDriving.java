@@ -75,7 +75,7 @@ public class TestDriving {
         assertEquals(1, CommandBase.driveTrain.getRight().getFront().get(), 0);
     }
 
-    //TODO find why it doesnt work
+    //TODO find why it doesnt work.DONE (delay problem)
     //@Test
     public void testDriveStraight() {
         Command command = new DriveStraight();

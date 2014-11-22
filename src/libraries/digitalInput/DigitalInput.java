@@ -15,7 +15,7 @@ public class DigitalInput {
     }
     
     public boolean get(){
-        return true;
+        return false;
     }
     
 }
