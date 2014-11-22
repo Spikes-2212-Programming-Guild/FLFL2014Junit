@@ -55,4 +55,11 @@ public class TestElevator {
         assertEquals(elevator.isDown(), true);
     }
 
+    public void testStop() {
+        Elevator elevator = new Elevator(1, 1);
+        elevator.stop();
+        assertEquals(elevator.isDown(), false);
+        assertEquals(elevator.isUp(), false);
+    }
+
 }
