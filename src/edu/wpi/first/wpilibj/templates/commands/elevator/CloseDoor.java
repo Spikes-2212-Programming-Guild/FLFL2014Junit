@@ -17,21 +17,26 @@ public class CloseDoor extends CommandBase {
         requires(door);
     }
 
+    @Override
     protected void initialize() {
     }
 
+    @Override
     protected void execute() {
         door.closeDoor();
     }
 
+    @Override
     protected boolean isFinished() {
         return door.isClosed();
     }
 
+    @Override
     protected void end() {
         door.stop();
     }
 
+    @Override
     protected void interrupted() {
         end();
     }

@@ -59,4 +59,12 @@ public class DriveTrain extends Subsystem implements In, Out {
         straight(speed);
     }
 
+    public Gearbox getLeft() {
+        return left;
+    }
+
+    public Gearbox getRight() {
+        return right;
+    }
+
 }

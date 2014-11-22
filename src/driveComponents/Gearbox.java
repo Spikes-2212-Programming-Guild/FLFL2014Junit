@@ -25,4 +25,12 @@ public class Gearbox {
         back.set(speed);
     }
 
+    public Talon getFront() {
+        return front;
+    }
+
+    public Talon getBack() {
+        return back;
+    }
+
 }
