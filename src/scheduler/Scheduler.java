@@ -12,6 +12,13 @@ import joystick.Button;
  * @author ThinkRedstone
  */
 public class Scheduler {
+    private static Scheduler instance;
+
+    public static Scheduler getInstance() {
+        instance  = new Scheduler();
+        return instance;
+    }
+    
 
     public void run() {
         for (Button b : Button.buttons) {

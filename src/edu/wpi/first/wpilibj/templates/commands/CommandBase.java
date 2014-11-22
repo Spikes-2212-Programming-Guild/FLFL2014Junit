@@ -1,12 +1,12 @@
 package edu.wpi.first.wpilibj.templates.commands;
 
 import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.templates.OI;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.templates.subsystems.Door;
 import edu.wpi.first.wpilibj.templates.subsystems.Elevator;
 import edu.wpi.first.wpilibj.templates.subsystems.PID;
+import libraries.commandBased.Command;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -36,9 +36,6 @@ public abstract class CommandBase extends Command {
         // Show what command your subsystem is running on the SmartDashboard
     }
 
-    public CommandBase(String name) {
-        super(name);
-    }
 
     public CommandBase() {
         super();

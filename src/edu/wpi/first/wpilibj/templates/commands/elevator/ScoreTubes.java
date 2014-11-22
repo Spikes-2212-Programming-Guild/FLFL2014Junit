@@ -5,8 +5,8 @@
  */
 package edu.wpi.first.wpilibj.templates.commands.elevator;
 
-import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.templates.RobotMap;
+import libraries.commandBased.CommandGroup;
 
 /**
  *

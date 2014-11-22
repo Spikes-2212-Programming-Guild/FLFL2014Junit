@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 package driveComponents;
-import edu.wpi.first.wpilibj.*;
+import libraries.talon.Talon;
 /**
  *
  * @author Developer

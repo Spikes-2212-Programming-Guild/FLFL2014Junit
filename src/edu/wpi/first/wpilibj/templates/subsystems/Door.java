@@ -5,9 +5,9 @@
  */
 package edu.wpi.first.wpilibj.templates.subsystems;
 
-import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.Relay;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import libraries.commandBased.Subsystem;
+import libraries.digitalInput.DigitalInput;
+import libraries.relay.Relay;
 
 /**
  *

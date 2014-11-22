@@ -5,8 +5,9 @@
  */
 package edu.wpi.first.wpilibj.templates.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.templates.RobotMap;
+import libraries.commandBased.Subsystem;
+
 
 /**
  *

@@ -18,5 +18,13 @@ public class Joystick {
     public boolean getRawButton(int buttonNum){
         return false;
     }
+
+    public double getX() {
+        return 0;
+    }
+
+    public double getY() {
+        return 0;
+    }
     
 }

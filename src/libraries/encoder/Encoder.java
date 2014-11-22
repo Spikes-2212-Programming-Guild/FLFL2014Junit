@@ -17,5 +17,8 @@ public class Encoder {
     public double get(){
         return 0;
     }
+
+    public void start() {
+    }
     
 }

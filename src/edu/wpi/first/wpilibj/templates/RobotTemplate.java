@@ -7,12 +7,11 @@
 
 package edu.wpi.first.wpilibj.templates;
 
-
-import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
+import libraries.commandBased.Command;
+import scheduler.Scheduler;
+
+
 
 
 /**
@@ -22,7 +21,7 @@ import edu.wpi.first.wpilibj.templates.commands.CommandBase;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class RobotTemplate extends IterativeRobot {
+public class RobotTemplate  {
 
     Command autonomousCommand;
 
@@ -68,7 +67,6 @@ public class RobotTemplate extends IterativeRobot {
      * This function is called periodically during test mode
      */
     public void testPeriodic() {
-        LiveWindow.run();
     }
     
 }

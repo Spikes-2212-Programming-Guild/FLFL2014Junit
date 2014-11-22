@@ -5,9 +5,9 @@
 package edu.wpi.first.wpilibj.templates.subsystems;
 
 import driveComponents.Gearbox;
-import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import libraries.encoder.Encoder;
 import edu.wpi.first.wpilibj.templates.commands.drive.TwoJoystickDrive;
+import libraries.commandBased.Subsystem;
 
 /**
  *
