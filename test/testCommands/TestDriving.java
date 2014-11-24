@@ -30,6 +30,7 @@ public class TestDriving {
 
     @BeforeClass
     public static void setUpClass() {
+        CommandBase.init();
     }
 
     @AfterClass
@@ -38,7 +39,6 @@ public class TestDriving {
 
     @Before
     public void setUp() {
-        CommandBase.init();
     }
 
     @After

@@ -29,6 +29,7 @@ public class TestBasicElevator {
 
     @BeforeClass
     public static void setUpClass() {
+        CommandBase.init();
     }
 
     @AfterClass
@@ -37,7 +38,7 @@ public class TestBasicElevator {
 
     @Before
     public void setUp() {
-        CommandBase.init();
+
     }
 
     @After
