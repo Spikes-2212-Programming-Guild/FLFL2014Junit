@@ -63,6 +63,5 @@ public class TestDoor {
     }
     @Test
     public void testOpenDoor(){
-    Command c = Functions.runCommand(new OpenDoor());
     }
 }
