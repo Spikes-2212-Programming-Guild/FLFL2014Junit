@@ -56,9 +56,6 @@ public class TestDoor {
         } catch (InterruptedException ex) {
             Logger.getLogger(TestDoor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("asserting");
-//        assertEquals(Relay.Value.kForward.getV(), CommandBase.door.getDoorRelay().get().getV());
-        System.out.println("done");
         while (command.i <= 1000) {
         }
         assertEquals(Relay.Value.kOff.getV(), CommandBase.door.getDoorRelay().get().getV());

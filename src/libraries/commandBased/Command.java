@@ -61,7 +61,6 @@ public abstract class Command implements Runnable {
     }
 
     public void cancel() {
-        System.out.println("cancel");
         end();
         for (int i = 0; i < threads.size(); i++) {
             threads.get(i).interrupt();
