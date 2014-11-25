@@ -25,10 +25,10 @@ public abstract class Command implements Runnable {
         while (true) {
             execute();
             if (isFinished()) {
+                cancel();
                 for (int i = 0; i < subsystems.size(); i++) {
                     subsystems.get(i).runDefault();
                 }
-                cancel();
             }
         }
     }
