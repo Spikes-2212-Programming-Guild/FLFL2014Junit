@@ -18,7 +18,6 @@ public abstract class Command implements Runnable {
     private boolean interrupted;
 
     public Command() {
-        initialize();
     }
 
     @Override
@@ -35,6 +34,7 @@ public abstract class Command implements Runnable {
     }
 
     public void start() {
+        initialize();
         for (int i = 0; i < subsystems.size(); i++) {
             threads.add(i, subsystems.get(i).setCommand(this));
         }
