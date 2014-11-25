@@ -25,6 +25,7 @@ public class CloseDoor extends CommandBase {
 
     @Override
     protected void execute() {
+        System.out.println("execute" + i);
         i++;
         door.closeDoor();
     }

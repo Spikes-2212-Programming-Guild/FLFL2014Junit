@@ -11,12 +11,13 @@ package libraries.digitalInput;
  */
 public class DigitalInput {
 
-    private boolean state;
+    private boolean state = false;
 
     public DigitalInput(int port) {
     }
 
     public boolean get() {
+//        System.out.println("get"+state);
         return state;
     }
 
