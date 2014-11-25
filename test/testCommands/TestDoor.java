@@ -7,6 +7,7 @@ package testCommands;
 
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 import edu.wpi.first.wpilibj.templates.commands.elevator.CloseDoor;
+import edu.wpi.first.wpilibj.templates.commands.elevator.OpenDoor;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import libraries.commandBased.Command;
@@ -22,9 +23,9 @@ import static org.junit.Assert.*;
  *
  * @author ThinkRedstone
  */
-public class TestBasicElevator {
+public class TestDoor {
 
-    public TestBasicElevator() {
+    public TestDoor() {
     }
 
     @BeforeClass
@@ -52,12 +53,16 @@ public class TestBasicElevator {
         try {
             Thread.sleep(10);
         } catch (InterruptedException ex) {
-            Logger.getLogger(TestBasicElevator.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestDoor.class.getName()).log(Level.SEVERE, null, ex);
         }
         assertEquals(Relay.Value.kForward.getV(), CommandBase.door.getDoorRelay().get().getV());
         while (command.i < 1900) {
         }
         assertEquals(Relay.Value.kOff.getV(), CommandBase.door.getDoorRelay().get().getV());
         assertTrue(CommandBase.door.isClosed());
+    }
+    @Test
+    public void testOpenDoor(){
+    Command c = Functions.runCommand(new OpenDoor());
     }
 }

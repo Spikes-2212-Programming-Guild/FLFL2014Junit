@@ -15,13 +15,14 @@ import libraries.commandBased.Command;
  */
 public class Functions {
 
-    public static void runCommand(Command c) {
+    public static Command runCommand(Command c) {
         c.start();
         try {
             Thread.sleep(10);
         } catch (InterruptedException ex) {
             Logger.getLogger(Functions.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return c;
     }
 
 }
