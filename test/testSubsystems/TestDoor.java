@@ -6,6 +6,7 @@
 package testSubsystems;
 
 import edu.wpi.first.wpilibj.templates.subsystems.Door;
+import libraries.relay.Relay;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -45,19 +46,20 @@ public class TestDoor {
     public void openTest() {
         Door door = new Door(0, 0, 0);
         door.openDoor();
-        assertEquals(door.isOpen(), true);
+        assertEquals(Relay.Value.kReverse.getV(), door.getDoorRelay().get().getV());
     }
 
+    @Test
     public void closeTest() {
         Door door = new Door(0, 0, 0);
         door.closeDoor();
-        assertEquals(door.isClosed(), true);
+        assertEquals(Relay.Value.kForward.getV(), door.getDoorRelay().get().getV());
     }
 
+    @Test
     public void stopTest() {
         Door door = new Door(0, 0, 0);
         door.stop();
-        assertEquals(door.isOpen(), false);
-        assertEquals(door.isClosed(), false);
+        assertEquals(Relay.Value.kOff.getV(), door.getDoorRelay().get().getV());
     }
 }
