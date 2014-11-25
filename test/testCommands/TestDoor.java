@@ -50,7 +50,6 @@ public class TestDoor {
     public void testCloseDoor() {
         CloseDoor command = new CloseDoor();
         command.start();
-        System.out.println("start");
         try {
             Thread.sleep(100);
         } catch (InterruptedException ex) {
@@ -61,7 +60,19 @@ public class TestDoor {
         assertEquals(Relay.Value.kOff.getV(), CommandBase.door.getDoorRelay().get().getV());
         assertTrue(CommandBase.door.isClosed());
     }
-    //@Test
+    @Test
     public void testOpenDoor(){
+        OpenDoor c = new OpenDoor();
+        c.start();
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(TestDoor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        while(c.i<=1000){
+            
+        }
+        assertEquals(Relay.Value.kOff.getV(), CommandBase.door.getDoorRelay().get().getV());
+        assertTrue(CommandBase.door.isOpen());
     }
 }
