@@ -54,10 +54,10 @@ public class TestBasicElevator {
         } catch (InterruptedException ex) {
             Logger.getLogger(TestBasicElevator.class.getName()).log(Level.SEVERE, null, ex);
         }
-        assertEquals(Relay.Value.kForward, CommandBase.door.getDoorRelay().get());
-        while (command.i < 10010) {
+        assertEquals(Relay.Value.kForward.getV(), CommandBase.door.getDoorRelay().get().getV());
+        while (command.i < 1900) {
         }
-        assertEquals(Relay.Value.kOff, CommandBase.door.getDoorRelay().get());
+        assertEquals(Relay.Value.kOff.getV(), CommandBase.door.getDoorRelay().get().getV());
         assertTrue(CommandBase.door.isClosed());
     }
 }
