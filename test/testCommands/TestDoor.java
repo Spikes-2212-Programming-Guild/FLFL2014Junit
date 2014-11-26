@@ -55,13 +55,18 @@ public class TestDoor {
         } catch (InterruptedException ex) {
             Logger.getLogger(TestDoor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        while (command.i <= 1000) {
+        assertEquals(Relay.Value.kForward.getV(), CommandBase.door.getDoorRelay().get().getV());
+        command.cancel();
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(TestDoor.class.getName()).log(Level.SEVERE, null, ex);
         }
         assertEquals(Relay.Value.kOff.getV(), CommandBase.door.getDoorRelay().get().getV());
-        assertTrue(CommandBase.door.isClosed());
     }
+
     @Test
-    public void testOpenDoor(){
+    public void testOpenDoor() {
         OpenDoor c = new OpenDoor();
         c.start();
         try {
@@ -69,10 +74,13 @@ public class TestDoor {
         } catch (InterruptedException ex) {
             Logger.getLogger(TestDoor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        while(c.i<=1000){
-            
+        assertEquals(Relay.Value.kReverse.getV(), CommandBase.door.getDoorRelay().get().getV());
+        c.cancel();
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(TestDoor.class.getName()).log(Level.SEVERE, null, ex);
         }
         assertEquals(Relay.Value.kOff.getV(), CommandBase.door.getDoorRelay().get().getV());
-        assertTrue(CommandBase.door.isOpen());
     }
 }

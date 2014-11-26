@@ -13,8 +13,6 @@ import edu.wpi.first.wpilibj.templates.commands.CommandBase;
  */
 public class OpenDoor extends CommandBase {
 
-    public int i;
-
     public OpenDoor() {
         requires(door);
     }
@@ -25,15 +23,11 @@ public class OpenDoor extends CommandBase {
 
     @Override
     protected void execute() {
-        i++;
         door.openDoor();
     }
 
     @Override
     protected boolean isFinished() {
-        if (i > 1000) {
-            door.getDoorBottom().set(true);
-        }
         return door.isOpen();
     }
 
