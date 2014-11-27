@@ -47,13 +47,13 @@ public abstract class Command implements Runnable {
     }
 
     public void interrupt() {
-        interrupted();
         interrupted = true;
         for (int i = 0; i < threads.size(); i++) {
             threads.get(i).interrupt();
             //resets the threads
             threads.clear();
         }
+        interrupted();
     }
 
     public boolean isInterrupted() {
