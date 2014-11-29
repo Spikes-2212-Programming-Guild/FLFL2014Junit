@@ -7,6 +7,7 @@ package testCommands;
 
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 import edu.wpi.first.wpilibj.templates.commands.elevator.ElevatorDown;
+import edu.wpi.first.wpilibj.templates.commands.elevator.ElevatorUp;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import libraries.relay.Relay;
@@ -57,6 +58,22 @@ public class TestElevator {
         }
         while (c.i <= 1000) {
         }
-        assertEquals(Relay.Value.kReverse.getV(), CommandBase.elevator);
+        assertEquals(Relay.Value.kOff.getV(), CommandBase.elevator.getLeftWheel().get().getV());
+        assertEquals(Relay.Value.kOff.getV(), CommandBase.elevator.getRightWheel().get().getV());
+    }
+
+    @Test
+    public void testElevatorUp() {
+        ElevatorUp c = new ElevatorUp();
+        c.start();
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(TestElevator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        while (c.i <= 1000) {
+        }
+        assertEquals(Relay.Value.kOff.getV(), CommandBase.elevator.getLeftWheel().get().getV());
+        assertEquals(Relay.Value.kOff.getV(), CommandBase.elevator.getRightWheel().get().getV());
     }
 }

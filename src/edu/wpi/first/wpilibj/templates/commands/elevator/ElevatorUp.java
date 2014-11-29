@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.templates.commands.CommandBase;
  * @author eyal
  */
 public class ElevatorUp extends CommandBase{
+    public int i;
     
     public ElevatorUp(){
         requires(elevator);
@@ -21,6 +22,7 @@ public class ElevatorUp extends CommandBase{
     }
 
     protected void execute() {
+        i++;
         elevator.goUp();
     }
 
@@ -33,6 +35,9 @@ public class ElevatorUp extends CommandBase{
     }
       
     public boolean isFinished() {
+        if(i>1000){
+            elevator.getTop().set(true);
+        }
        return elevator.isUp();
     } 
     

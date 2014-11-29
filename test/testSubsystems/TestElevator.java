@@ -47,22 +47,22 @@ public class TestElevator {
     public void testUp() {
         Elevator elevator = new Elevator(1, 1);
         elevator.goUp();
-        assertEquals(elevator.leftWheel.get().getV(), Relay.Value.kForward.getV());
-        assertEquals(elevator.rightWheel.get().getV(), Relay.Value.kForward.getV());
+        assertEquals(elevator.getLeftWheel().get().getV(), Relay.Value.kForward.getV());
+        assertEquals(elevator.getRightWheel().get().getV(), Relay.Value.kForward.getV());
     }
     @Test
     public void testDown() {
         Elevator elevator = new Elevator(1, 1);
         elevator.goDown();
-        assertEquals(elevator.leftWheel.get().getV(), Relay.Value.kReverse.getV());
-        assertEquals(elevator.rightWheel.get().getV(), Relay.Value.kReverse.getV());
+        assertEquals(elevator.getLeftWheel().get().getV(), Relay.Value.kReverse.getV());
+        assertEquals(elevator.getRightWheel().get().getV(), Relay.Value.kReverse.getV());
     }
     @Test
     public void testStop() {
         Elevator elevator = new Elevator(1, 1);
         elevator.stop();
-        assertEquals(elevator.leftWheel.get().getV(), Relay.Value.kOff.getV());
-        assertEquals(elevator.rightWheel.get().getV(), Relay.Value.kOff.getV());
+        assertEquals(elevator.getLeftWheel().get().getV(), Relay.Value.kOff.getV());
+        assertEquals(elevator.getRightWheel().get().getV(), Relay.Value.kOff.getV());
     }
 
 }
