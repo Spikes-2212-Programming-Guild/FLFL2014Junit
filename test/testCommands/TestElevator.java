@@ -6,6 +6,7 @@ package testCommands;
  * and open the template in the editor.
  */
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
+import edu.wpi.first.wpilibj.templates.commands.elevator.ElevatorDown;
 import edu.wpi.first.wpilibj.templates.commands.elevator.ElevatorUp;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,9 +45,6 @@ public class TestElevator {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
     @Test
     public void testElevatorUp() {
         Command c = new ElevatorUp();
@@ -66,5 +64,27 @@ public class TestElevator {
         }
         assertEquals(Relay.Value.kOff.getV(), CommandBase.elevator.getLeftWheel().get().getV());
         assertEquals(Relay.Value.kOff.getV(), CommandBase.elevator.getRightWheel().get().getV());
+    }
+
+    @Test
+    public void testElevatorDown() {
+        Command c = new ElevatorDown();
+        c.start();
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(TestElevator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        assertEquals(Relay.Value.kReverse.getV(), CommandBase.elevator.getLeftWheel().get().getV());
+        assertEquals(Relay.Value.kReverse.getV(), CommandBase.elevator.getRightWheel().get().getV());
+        c.cancel();
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(TestElevator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        assertEquals(Relay.Value.kOff.getV(), CommandBase.elevator.getLeftWheel().get().getV());
+        assertEquals(Relay.Value.kOff.getV(), CommandBase.elevator.getRightWheel().get().getV());
+
     }
 }
