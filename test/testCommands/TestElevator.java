@@ -48,7 +48,7 @@ public class TestElevator {
     // The methods must be annotated with annotation @Test. For example:
     //
     @Test
-    public static void testElevatorUp() {
+    public void testElevatorUp() {
         Command c = new ElevatorUp();
         c.start();
         try {
