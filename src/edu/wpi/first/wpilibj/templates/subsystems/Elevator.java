@@ -18,7 +18,7 @@ public class Elevator extends Subsystem {
 
     private DigitalInput top = new DigitalInput(RobotMap.ELEVATOR_TOP_DI_PORT);
     private DigitalInput bottom = new DigitalInput(RobotMap.ELEVATOR_BOTTOM_DI_PORT);
-    public Relay rightWheel, leftWheel;
+    private Relay rightWheel, leftWheel;
 
     public Elevator(Relay leftWheel, Relay rightWheel) {
         this.leftWheel = leftWheel;
@@ -62,4 +62,13 @@ public class Elevator extends Subsystem {
     public DigitalInput getBottom() {
         return bottom;
     }
+
+    public Relay getRightWheel() {
+        return rightWheel;
+    }
+
+    public Relay getLeftWheel() {
+        return leftWheel;
+    }
+
 }
