@@ -26,9 +26,7 @@ public abstract class Command implements Runnable {
             execute();
             if (isFinished()) {
                 cancel();
-                for (int i = 0; i < subsystems.size(); i++) {
-                    subsystems.get(i).runDefault();
-                }
+
             }
         }
     }
@@ -61,11 +59,14 @@ public abstract class Command implements Runnable {
     }
 
     public void cancel() {
-        end();
         for (int i = 0; i < threads.size(); i++) {
             threads.get(i).interrupt();
-            //resets the threads
         }
+        end();
+        for (int i = 0; i < subsystems.size(); i++) {
+            subsystems.get(i).runDefault();
+        }
+        //resets the threads
         threads.clear();
     }
 
