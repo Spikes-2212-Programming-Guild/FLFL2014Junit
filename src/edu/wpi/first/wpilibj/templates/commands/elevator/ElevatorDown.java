@@ -11,29 +11,35 @@ import edu.wpi.first.wpilibj.templates.commands.CommandBase;
  *
  * @author eyal
  */
-public class ElevatorDown extends CommandBase{
+public class ElevatorDown extends CommandBase {
 
-    public ElevatorDown(){
+    public int i;
+
+    public ElevatorDown() {
         requires(elevator);
     }
-    
+
     protected void initialize() {
     }
 
     protected void execute() {
+        i++;
         elevator.goDown();
     }
 
     protected void end() {
         elevator.stop();
     }
-    
-    public void interrupted(){
+
+    public void interrupted() {
         end();
     }
-      
+
     public boolean isFinished() {
-       return elevator.isDown();
-    } 
-    
+        if (i > 1000) {
+            elevator.getBottom().set(true);
+        }
+        return elevator.isDown();
+    }
+
 }
